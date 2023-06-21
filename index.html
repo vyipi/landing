@@ -7,6 +7,8 @@
         body {
             /* Add background images for landscape and portrait viewing */
             background-image: url('landscape.jpg');
+            margin: 0;
+            padding: 0;
         }
         @media (orientation: portrait) {
             body {
@@ -21,11 +23,12 @@
         }
         #social-links {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             margin-top: 20px;
         }
         #social-links button {
-            margin: 0 10px;
+            margin: 10px 0;
         }
         #arrow-icon {
             display: block;
@@ -34,16 +37,34 @@
             height: 50px;
             margin-top: 20px;
         }
+        #ar-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
+    <script>
+        function showArContent() {
+            document.getElementById('landing-page').style.display = 'none';
+            document.getElementById('ar-content').style.display = 'block';
+        }
+    </script>
 </head>
 <body>
-    <div id="contact-header">Contact Me</div>
-    <div id="social-links">
-        <button onclick="window.location.href='https://www.instagram.com'">Instagram</button>
-        <button onclick="window.location.href='https://www.facebook.com'">Facebook</button>
+    <div id="landing-page">
+        <div id="contact-header">Contact Me</div>
+        <div id="social-links">
+            <button onclick="window.location.href='https://www.instagram.com'">Instagram</button>
+            <button onclick="window.location.href='https://www.facebook.com'">Facebook</button>
+        </div>
+        <img id="arrow-icon" src="arrow.png" alt="Arrow Icon" onclick="showArContent()">
     </div>
-    <img id="arrow-icon" src="arrow.png" alt="Arrow Icon">
-    <!-- Add your ar.html file here -->
-    <iframe src="ar.html" width="100%" height="100%"></iframe>
+    <div id="ar-content">
+        <!-- Add your ar.html file here -->
+        <iframe src="ar.html" width="100%" height="100%"></iframe>
+    </div>
 </body>
 </html>
