@@ -1,53 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-    </head>
-
-    <body style="margin: 0; overflow: hidden;">
-        <a-scene
-            vr-mode-ui="enabled: false;"
-            loading-screen="enabled: false;"
-            color-space="sRGB"
-            renderer="colorManagement: true; logarithmicDepthBuffer: true;"
-            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;
-             detectionMode: mono_and_matrix; matrixCodeType: 3x3_HAMMING63;"
-            id="scene"
-            embedded
-            gesture-detector
-        >
-            <a-assets>
-                <a-asset-item
-                    id="animated-asset"
-                    src="assets/asset.glb"
-                ></a-asset-item>
-            </a-assets>
-
-            <a-marker
-                type="barcode"
-                smooth= "true"
-                smooth-count="5"
-                value="1"
-                id="animated-marker"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-                <a-entity
-                    id="bowser-model"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset"
-                    class="clickable"
-                    gesture-handler
-                ></a-entity>
-            </a-marker>
-
-            <a-entity camera></a-entity>
-        </a-scene>
-    </body>
+<head>
+    <title>Contact Me</title>
+    <style>
+        /* Add your CSS styling here */
+        body {
+            /* Add background images for landscape and portrait viewing */
+            background-image: url('landscape.jpg');
+        }
+        @media (orientation: portrait) {
+            body {
+                background-image: url('portrait.jpg');
+            }
+        }
+        /* Style the page with a focus on minimalism */
+        #contact-header {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        #social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #social-links button {
+            margin: 0 10px;
+        }
+        #arrow-icon {
+            display: block;
+            margin: auto;
+            width: 50px;
+            height: 50px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contact-header">Contact Me</div>
+    <div id="social-links">
+        <button onclick="window.location.href='https://www.instagram.com'">Instagram</button>
+        <button onclick="window.location.href='https://www.facebook.com'">Facebook</button>
+    </div>
+    <img id="arrow-icon" src="arrow.png" alt="Arrow Icon">
+    <!-- Add your ar.html file here -->
+    <iframe src="ar.html" width="100%" height="100%"></iframe>
+</body>
 </html>
