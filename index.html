@@ -87,7 +87,6 @@
           if (startY !== null && currentY < startY) {
               // The user is moving their finger upwards
               var deltaY = startY - currentY;
-
               
               // Update the position of the social links
               var socialLinks = document.querySelector('.social-links');
@@ -111,9 +110,6 @@
               // Update the opacity of the arrow icon
               arrowIcon.style.opacity = opacity; 
               
-              // Update the scale of the arrow icon
-              var scale = Math.max(0.5, opacity);
-              arrowIcon.style.transform += ` scale(${scale})`;
               
               // Prevent scrolling on touch devices
               event.preventDefault();
@@ -130,6 +126,13 @@
               arPage.style.top = '0';
           }
       });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var arPage = document.querySelector('.ar-page');
+        var iframe = arPage.querySelector('iframe');
+        iframe.src = 'ar.html';
+    });
+
     </script>
 </body>
 </html>
