@@ -6,23 +6,23 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <style>
         #splash {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: yellow;
-}
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: yellow;
+        }
     </style>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
     <div id="splash">
         <p>Loading...</p>
-      </div>
+    </div>
     <a-scene loading-screen="enabled: false;" vr-mode-ui="enabled: false;" color-space="sRGB"
         renderer="colorManagement: true; logarithmicDepthBuffer: true;" arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;
              detectionMode: mono_and_matrix; matrixCodeType: 3x3_HAMMING63;" id="scene" embedded>
@@ -38,12 +38,12 @@
     </a-scene>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    var scene = document.querySelector('a-scene');
-    var splash = document.querySelector('#splash');
-    scene.addEventListener('loaded', function (e) {
-        splash.style.display = 'none';
-    });
-});
+            var scene = document.querySelector('a-scene');
+            var splash = document.querySelector('#splash');
+            scene.addEventListener('loaded', function (e) {
+                splash.style.display = 'none';
+            });
+        });
     </script>
 </body>
 
