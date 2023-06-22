@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -10,33 +11,37 @@
             font-family: sans-serif;
             overflow: hidden;
         }
+
         .contact-me {
-    text-align: center;
-    font-size: 24px;
-}
-.social-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.social-links a {
-    display: block;
-    width: 50vw;
-    height: 50px;
-    margin: 10px 0;
-    background-color: gray;
-    border-radius: 25px;
-    color: white;
-    text-align: center;
-    line-height: 50px;
-    text-decoration: none;
-}
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links a {
+            display: block;
+            width: 50vw;
+            height: 50px;
+            margin: 10px 0;
+            background-color: gray;
+            border-radius: 25px;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
         .arrow-icon {
             position: fixed;
@@ -44,6 +49,7 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
         .ar-page {
             position: fixed;
             top: 100%;
@@ -51,7 +57,7 @@
             right: 0;
             bottom: 0;
         }
-        
+
         .ar-page iframe {
             width: 100%;
             height: 100%;
@@ -59,6 +65,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="contact-me">Contact me</div>
@@ -77,67 +84,67 @@
 
     <!-- Add your JavaScript code here -->
     <script>
-      // Add your JavaScript code here
-      var arrowIcon = document.querySelector('.arrow-icon');
-      var arPage = document.querySelector('.ar-page');
-
-      var startY = null;
-
-      arrowIcon.addEventListener('touchstart', function(event) {
-          startY = event.touches[0].clientY;
-      });
-
-      arrowIcon.addEventListener('touchmove', function(event) {
-          var currentY = event.touches[0].clientY;
-
-          if (startY !== null && currentY < startY) {
-              // The user is moving their finger upwards
-              var deltaY = startY - currentY;
-              
-              // Update the position of the social links
-              var socialLinks = document.querySelector('.social-links');
-              socialLinks.style.transform = `translateY(${-deltaY}px)`;
-              
-              // Update the position of the contact me text
-              var contactMe = document.querySelector('.contact-me');
-              contactMe.style.transform = `translateY(${-deltaY}px)`;
-              
-              // Update the position of the arrow icon
-              arrowIcon.style.transform = `translateX(-50%) translateY(${-deltaY}px)`;
-              
-              // Update the position of the ar page
-              arPage.style.top = (window.innerHeight - deltaY) + 'px';
-              
-              // Update the opacity of the social links and contact me text
-              var opacity = 1 - (deltaY / window.innerHeight);
-              socialLinks.style.opacity = opacity;
-              contactMe.style.opacity = opacity; 
-              
-              // Update the opacity of the arrow icon
-              arrowIcon.style.opacity = opacity; 
-              
-              
-              // Prevent scrolling on touch devices
-              event.preventDefault();
-          }
-      });
-
-      arrowIcon.addEventListener('touchend', function(event) {
-          if (startY !== null) {
-              
-              startY = null;
-              
-              // Keep the ar-page open
-              arPage.style.transition = 'top 0.25s ease-in-out';
-              arPage.style.top = '0';
-          }
-      });
-
-    document.addEventListener('DOMContentLoaded', function() {
+        // Add your JavaScript code here
+        var arrowIcon = document.querySelector('.arrow-icon');
         var arPage = document.querySelector('.ar-page');
-        var iframe = arPage.querySelector('iframe');
-        iframe.src = 'ar.html';
-    });
+
+        var startY = null;
+
+        arrowIcon.addEventListener('touchstart', function (event) {
+            startY = event.touches[0].clientY;
+        });
+
+        arrowIcon.addEventListener('touchmove', function (event) {
+            var currentY = event.touches[0].clientY;
+
+            if (startY !== null && currentY < startY) {
+                // The user is moving their finger upwards
+                var deltaY = startY - currentY;
+
+                // Update the position of the social links
+                var socialLinks = document.querySelector('.social-links');
+                socialLinks.style.transform = `translateY(${-deltaY}px)`;
+
+                // Update the position of the contact me text
+                var contactMe = document.querySelector('.contact-me');
+                contactMe.style.transform = `translateY(${-deltaY}px)`;
+
+                // Update the position of the arrow icon
+                arrowIcon.style.transform = `translateX(-50%) translateY(${-deltaY}px)`;
+
+                // Update the position of the ar page
+                arPage.style.top = (window.innerHeight - deltaY) + 'px';
+
+                // Update the opacity of the social links and contact me text
+                var opacity = 1 - (deltaY / window.innerHeight);
+                socialLinks.style.opacity = opacity;
+                contactMe.style.opacity = opacity;
+
+                // Update the opacity of the arrow icon
+                arrowIcon.style.opacity = opacity;
+
+
+                // Prevent scrolling on touch devices
+                event.preventDefault();
+            }
+        });
+
+        arrowIcon.addEventListener('touchend', function (event) {
+            if (startY !== null) {
+
+                startY = null;
+
+                // Keep the ar-page open
+                arPage.style.transition = 'top 0.25s ease-in-out';
+                arPage.style.top = '0';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var arPage = document.querySelector('.ar-page');
+            var iframe = arPage.querySelector('iframe');
+            iframe.src = 'ar.html';
+        });
 
     </script>
 </body>
