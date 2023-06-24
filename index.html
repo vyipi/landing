@@ -7,11 +7,10 @@
         /* Add your CSS styles here */
 
         .glow-effect {
-            -webkit-transform: translateZ(0);
             animation: color-change 1s infinite alternate, glow 1s infinite alternate;
         }
 
-        @keyframes color-change {
+        @-webkit-keyframes color-change {
             from {
                 fill: #266b65;
             }
@@ -21,7 +20,7 @@
             }
         }
 
-        @keyframes glow {
+        @-webkit-keyframes glow {
             from {
                 filter: none;
             }
