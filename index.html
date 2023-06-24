@@ -206,21 +206,54 @@
                 // Update the position of the ar page
                 arPage.style.top = (window.innerHeight - deltaY) + 'px';
 
+                var opacity = 1 - (deltaY / window.innerHeight);
+                socialLinks.style.opacity = opacity;
+
+                // Update the opacity of the arrow icon
+                arrowIcon.style.opacity = opacity;
+
                 // Prevent scrolling on touch devices
                 event.preventDefault();
             }
         });
 
         arrowIcon.addEventListener('touchend', function (event) {
-            if (startY !== null) {
+    if (startY !== null) {
+        var currentY = event.changedTouches[0].clientY;
+        var deltaY = startY - currentY;
 
-                startY = null;
+        var socialLinks = document.querySelector('.social-links');
 
-                // Keep the ar-page open
-                arPage.style.transition = 'top 0.25s ease-in-out';
-                arPage.style.top = '0';
-            }
-        });
+        if (deltaY > window.innerHeight / 4) {
+            // Keep the ar-page open
+            arPage.style.transition = 'top 0.25s ease-in-out';
+            arPage.style.top = '0';
+        } else {
+            // Add the transition style
+            socialLinks.style.transition = 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out';
+            arrowIcon.style.transition = 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out';
+            arPage.style.transition = 'top 0.25s ease-in-out';
+
+            // Reset the styles
+            socialLinks.style.transform = '';
+            socialLinks.style.opacity = '';
+
+            arrowIcon.style.transform = '';
+            arrowIcon.style.opacity = '';
+
+            arPage.style.top = '';
+
+            // Remove the transition style after the animation completes
+            setTimeout(function () {
+                socialLinks.style.transition = '';
+                arrowIcon.style.transition = '';
+                arPage.style.transition = '';
+            }, 250);
+        }
+
+        startY = null;
+    }
+});
 
 
 
