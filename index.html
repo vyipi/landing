@@ -81,6 +81,11 @@
             height: 100%;
             border: none;
         }
+
+        .hide {
+    opacity: 0;
+    pointer-events: none;
+}
         
     </style>
 </head>
@@ -222,6 +227,12 @@
             // Keep the ar-page open
             arPage.style.transition = 'top 0.25s ease-in-out';
             arPage.style.top = '0';
+
+            arPage.addEventListener('transitionend', function () {
+            // Add class to hide container and arrow elements
+            document.querySelector('.container').classList.add('hide');
+            document.querySelector('.arrow-icon').classList.add('hide');
+            }, { once: true });
         } else {
             // Add the transition style
             socialLinks.style.transition = 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out';
