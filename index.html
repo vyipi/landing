@@ -206,12 +206,6 @@
                 // Update the position of the ar page
                 arPage.style.top = (window.innerHeight - deltaY) + 'px';
 
-                var opacity = 1 - (deltaY / window.innerHeight);
-                socialLinks.style.opacity = opacity;
-
-                // Update the opacity of the arrow icon
-                arrowIcon.style.opacity = opacity;
-
                 // Prevent scrolling on touch devices
                 event.preventDefault();
             }
@@ -236,10 +230,8 @@
 
             // Reset the styles
             socialLinks.style.transform = '';
-            socialLinks.style.opacity = '';
 
             arrowIcon.style.transform = '';
-            arrowIcon.style.opacity = '';
 
             arPage.style.top = '';
 
