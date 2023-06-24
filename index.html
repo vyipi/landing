@@ -7,16 +7,20 @@
         /* Add your CSS styles here */
 
         .glow-effect {
-    filter: drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 2px #fff) ;
-    animation: glow 1s ease-in-out infinite alternate;
+    animation: color-change 1s infinite alternate, glow 1s infinite alternate;
+}
+
+@keyframes color-change {
+    from { fill: #266b65; }
+    to { fill: #ffffff; }
 }
 
 @keyframes glow {
     from {
-        filter: drop-shadow(0px 0px 1px #264936) drop-shadow(0px 0px 1px #264936)  ;
+        filter: none;
     }
     to {
-        filter: drop-shadow(0px 0px 10px #fff) drop-shadow(0px 0px 10px #ffffff) ;
+        filter: drop-shadow(0px 0px 10px #fff) drop-shadow(0px 0px 10px #fff);
     }
 }
 
