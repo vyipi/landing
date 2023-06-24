@@ -120,7 +120,7 @@
     </div>
 
     <div class="ar-page">
-        <iframe src="ar.html"></iframe>
+        <iframe></iframe>
     </div>
 
 
@@ -191,6 +191,7 @@
 
         arrowIcon.addEventListener('touchstart', function (event) {
             startY = event.touches[0].clientY;
+            document.querySelector('.ar-page iframe').src = 'ar.html';
         });
 
         arrowIcon.addEventListener('touchmove', function (event) {
