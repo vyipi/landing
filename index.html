@@ -63,6 +63,29 @@
             transform: translateX(-50%);
         }
 
+        .side-decorations {
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(0%, -50%);
+        }
+        .side-decorations svg {
+            width: 4vh;
+            padding-left: 2vh;
+        }
+
+        .side-decorations-right {
+            position: absolute;
+            top: 50%;
+            right: 0%;
+            transform: translate(0%, -50%);
+        }
+        .side-decorations-right svg {
+            width: 4vh;
+            padding-left: 2vh;
+            transform: scaleX(-1);
+        }
+
         .arrow-icon svg {
             width: 50vh;
             transform: translateY(13%);
@@ -92,6 +115,16 @@
 
 <body>
     <div class="bg"></div>
+    <div class="side-decorations">
+        <svg viewBox="0 0 12.7 112.9" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+            <use href="#sidedeco"></use>
+        </svg>
+    </div>
+    <div class="side-decorations-right">
+        <svg viewBox="0 0 12.7 112.9" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+            <use href="#sidedeco"></use>
+        </svg>
+    </div>
     <div class="container">
         <div class="social-links">
             <svg class="logo" viewBox="0 0 74.6 72.7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
@@ -198,7 +231,7 @@
     <svg viewBox="0 0 12.7 112.9" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
         <symbol id="sidedeco">
             <g style="display:inline">
-                <path style="display:inline;fill:#4d266b;stroke-width:.0846667"
+                <path style="display:inline;fill:#502C68;stroke-width:.0846667"
                     d="M50.8 193.8c-.4 0-.5 0-.8.3-.6.5-.6-1.3-.6 19.7a334.2 334.2 0 0 0 .4 20.7 356 356 0 0 0 10.5 10.3c.4.2.4.2.8 0 .4 0 .8-.5 1-1v-.6c-.2-.4-.6-.8-5-5.2l-4.8-4.9v-19c0-21.4 0-19.5-.7-20-.2-.3-.4-.3-.8-.3zm1 47.5c-1 0-1.8.9-1.3 1.9l3.3 3.5L57 250l-3.4 3.4-3.3 3.4v.6c-.1.6 0 .9.3 1.2.2.3.3.3.9.3h.6l3.8-3.9c2.5-2.5 4-4 4-4.2a3 3 0 0 0 0-1.9 163 163 0 0 0-8-7.6zm-.4 6.5c-.6 0-1 .2-1.5.7l-.2.9v.8c.1.5.7 1 1 1.2.7.3 1.6 0 2-.8a3 3 0 0 0 0-1.8l-.4-.5a2 2 0 0 0-1-.5zm9.3 7.8-.7.2a281.6 281.6 0 0 0-10.3 10.7l-.2.8v19.5c0 21-.1 19.1.5 19.7.3.2.4.2.8.2s.6 0 .8-.2c.7-.6.6 1.3.7-20v-19l4.8-5a54 54 0 0 0 5-5.1c0-.5 0-.9-.4-1.3-.3-.3-.6-.5-1-.5z"
                     transform="translate(-49.4 -193.8)" />
             </g>
