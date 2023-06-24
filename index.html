@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* Add your CSS styles here */
+        
         body {
             margin: 0;
             padding: 0;
@@ -370,20 +371,20 @@
 
     <script>
         let blur = document.querySelector('#c feGaussianBlur');
-let stdDeviation = 4.09764;
+        let stdDeviation = 4.09764;
 
-let direction = 1;
+        let direction = 1;
 
-function animate() {
-    stdDeviation += direction * 0.1;
-    if (stdDeviation > 4.09764 || stdDeviation < 0) {
-        direction *= -1;
-    }
-    blur.setAttribute('stdDeviation', `${stdDeviation} ${stdDeviation}`);
-    requestAnimationFrame(animate);
-}
+        function animate() {
+            stdDeviation += direction * 0.1;
+            if (stdDeviation > 4.09764 || stdDeviation < 0) {
+                direction *= -1;
+            }
+            blur.setAttribute('stdDeviation', `${stdDeviation} ${stdDeviation}`);
+            requestAnimationFrame(animate);
+        }
 
-animate();
+        animate();
     </script>
 </body>
 
