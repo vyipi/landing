@@ -252,6 +252,10 @@
 
     <!-- Add your JavaScript code here -->
     <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+        history.go(1);
+        };
 
         // Add your JavaScript code here
         var arrowIcon = document.querySelector('.arrow-icon');
@@ -332,16 +336,6 @@
         });
 
 </script>
-    
-<script>
-    window.addEventListener("pageshow", function(event) {
-  var historyTraversal = event.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2);
-  if (historyTraversal) {
-    // Handle page restore.
-    window.location.reload();
-  }
-});
-    </script>
     </body>
 
 </html>
