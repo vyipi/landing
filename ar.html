@@ -52,31 +52,33 @@
 </head>
 
 <body style="margin: 0; overflow: hidden;">
-    <div id="splash">
-        <svg viewBox="0 0 196.71 338.67" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-            <use href="#pleasewait"></use>    
-        </svg>
+    <div id="loadingscreen">
+            <div id="splash">
+                <svg viewBox="0 0 196.71 338.67" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                    <use href="#pleasewait"></use>    
+                </svg>
+            </div>
+            <div class="grad-top">
+                <svg viewBox="0 0 246 80" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                    <use href="#loadgrad"></use>
+                </svg>
+            </div>
+            <div class="grad-bottom">
+                <svg viewBox="0 0 246 80" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                    <use href="#loadgrad"></use>
+                </svg>
+            </div>
+            <svg viewBox="0 0 246 80" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><symbol id ="loadgrad">
+                <defs>
+                  <linearGradient id="a">
+                    <stop style="stop-color:#54fbd8;stop-opacity:1" offset="0"/>
+                    <stop style="stop-color:#54fbd8;stop-opacity:0" offset="1"/>
+                  </linearGradient>
+                  <linearGradient xlink:href="#a" id="b" x1="104" y1="-14.9" x2="103.5" y2="50.4" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.08202 0 0 1 22 22)"/>
+                </defs>
+                <rect style="display:inline;fill:url(#b);fill-opacity:1;stroke-width:.728142" width="246.3" height="79.5" ry=".1"/>
+            </symbol></svg>
     </div>
-    <div class="grad-top">
-        <svg viewBox="0 0 246 80" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-            <use href="#loadgrad"></use>
-        </svg>
-    </div>
-    <div class="grad-bottom">
-        <svg viewBox="0 0 246 80" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-            <use href="#loadgrad"></use>
-        </svg>
-    </div>
-    <svg viewBox="0 0 246 80" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><symbol id ="loadgrad">
-        <defs>
-          <linearGradient id="a">
-            <stop style="stop-color:#54fbd8;stop-opacity:1" offset="0"/>
-            <stop style="stop-color:#54fbd8;stop-opacity:0" offset="1"/>
-          </linearGradient>
-          <linearGradient xlink:href="#a" id="b" x1="104" y1="-14.9" x2="103.5" y2="50.4" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.08202 0 0 1 22 22)"/>
-        </defs>
-        <rect style="display:inline;fill:url(#b);fill-opacity:1;stroke-width:.728142" width="246.3" height="79.5" ry=".1"/>
-    </symbol></svg>
     <a-scene loading-screen="enabled: false;" vr-mode-ui="enabled: false;" color-space="sRGB"
         renderer="colorManagement: true; logarithmicDepthBuffer: true;" arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;
              detectionMode: mono_and_matrix; matrixCodeType: 3x3_HAMMING63;" id="scene" embedded>
@@ -93,7 +95,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var scene = document.querySelector('a-scene');
-            var splash = document.querySelector('#splash');
+            var splash = document.querySelector('#loadingscreen');
             scene.addEventListener('loaded', function (e) {
                 splash.style.display = 'none';
             });
