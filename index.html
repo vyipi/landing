@@ -252,87 +252,89 @@
 
     <!-- Add your JavaScript code here -->
     <script>
-        
-
-        // Add your JavaScript code here
-            var arrowIcon = document.querySelector('.arrow-icon');
-            var arPage = document.querySelector('.ar-page');
-
-            var startY = null;
-
-            arrowIcon.addEventListener('touchstart', function (event) {
-                startY = event.touches[0].clientY;
-            });
-
-            arrowIcon.addEventListener('touchmove', function (event) {
-                var currentY = event.touches[0].clientY;
-
-                if (startY !== null && currentY < startY) {
-                    // The user is moving their finger upwards
-                    var deltaY = startY - currentY;
-
-                    // Update the position of the social links
-                    var socialLinks = document.querySelector('.social-links');
-                    socialLinks.style.transform = `translateY(${-deltaY}px)`;
 
 
-                    // Update the position of the arrow icon
-                    arrowIcon.style.transform = `translateX(-50%) translateY(${-deltaY}px)`;
+        var arrowIcon = document.querySelector('.arrow-icon');
+        var arPage = document.querySelector('.ar-page');
+        var startY = null;
 
-                    // Update the position of the ar page
-                    arPage.style.top = (window.innerHeight - deltaY) + 'px';
-
-                    // Prevent scrolling on touch devices
-                    event.preventDefault();
-                }
-            });
-
-            arrowIcon.addEventListener('touchend', function (event) {
-                if (startY !== null) {
-                    var currentY = event.changedTouches[0].clientY;
-                    var deltaY = startY - currentY;
-
-                    var socialLinks = document.querySelector('.social-links');
-
-                    if (deltaY > window.innerHeight / 4) {
-                        // Keep the ar-page open
-                        arPage.style.transition = 'top 0.25s ease-in-out';
-                        arPage.style.top = '0';
-
-                        arPage.addEventListener('transitionend', function () {
-                            // Add class to hide container and arrow elements
-                            // Set the src attribute of the iframe to load its content
-                            window.location.href = "https://vyipi.github.io/card-captor/";
+        function handleEvent(event) {
+            var type = "";
+            var currentY;
+            switch (event.type) {
+                case "touchstart":
+                case "mousedown":
+                    type = "mousedown";
+                    startY = event.type === "touchstart" ? event.touches[0].clientY : event.clientY;
+                    break;
+                case "touchmove":
+                case "mousemove":
+                    type = "mousemove";
+                    currentY = event.type === "touchmove" ? event.touches[0].clientY : event.clientY;
+                    if (startY !== null && currentY < startY) {
+                        // The user is moving their finger upwards
+                        var deltaY = startY - currentY;
+                        // Update the position of the social links
+                        var socialLinks = document.querySelector('.social-links');
+                        socialLinks.style.transform = `translateY(${-deltaY}px)`;
+                        // Update the position of the arrow icon
+                        arrowIcon.style.transform = `translateX(-50%) translateY(${-deltaY}px)`;
+                        // Update the position of the ar page
+                        arPage.style.top = (window.innerHeight - deltaY) + 'px';
+                        // Prevent scrolling on touch devices
+                        event.preventDefault();
+                    }
+                    break;
+                case "touchend":
+                case "mouseup":
+                    type = "mouseup";
+                    if (startY !== null) {
+                        currentY = event.type === "touchend" ? event.changedTouches[0].clientY : event.clientY;
+                        var deltaY = startY - currentY;
+                        var socialLinks = document.querySelector('.social-links');
+                        if (deltaY > window.innerHeight / 4) {
+                            // Keep the ar-page open
+                            arPage.style.transition = 'top 0.25s ease-in-out';
+                            arPage.style.top = '0';
+                            arPage.addEventListener('transitionend', function () {
+                                // Add class to hide container and arrow elements
+                                // Set the src attribute of the iframe to load its content
+                                window.location.href = "https://vyipi.github.io/card-captor/";
+                                socialLinks.style.transform = '';
+                                arrowIcon.style.transform = '';
+                                arPage.style.top = '';
+                            }, { once: true });
+                        } else {
+                            // Add the transition style
+                            socialLinks.style.transition = 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out';
+                            arrowIcon.style.transition = 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out';
+                            arPage.style.transition = 'top 0.25s ease-in-out';
+                            // Reset the styles
                             socialLinks.style.transform = '';
                             arrowIcon.style.transform = '';
                             arPage.style.top = '';
-                        }, { once: true });
-                    } else {
-                        // Add the transition style
-                        socialLinks.style.transition = 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out';
-                        arrowIcon.style.transition = 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out';
-                        arPage.style.transition = 'top 0.25s ease-in-out';
-
-                        // Reset the styles
-                        socialLinks.style.transform = '';
-
-                        arrowIcon.style.transform = '';
-
-                        arPage.style.top = '';
-
-                        // Remove the transition style after the animation completes
-                        setTimeout(function () {
-                            socialLinks.style.transition = '';
-                            arrowIcon.style.transition = '';
-                            arPage.style.transition = '';
-                        }, 250);
+                            // Remove the transition style after the animation completes
+                            setTimeout(function () {
+                                socialLinks.style.transition = '';
+                                arrowIcon.style.transition = '';
+                                arPage.style.transition = '';
+                            }, 250);
+                        }
+                        startY = null;
                     }
+                    break;
+                default:
+                    return;
+            }
+        }
 
-                    startY = null;
-                }
-            });
-
-        </script>
+        arrowIcon.addEventListener("touchstart", handleEvent);
+        arrowIcon.addEventListener("touchmove", handleEvent);
+        arrowIcon.addEventListener("touchend", handleEvent);
+        arrowIcon.addEventListener("mousedown", handleEvent);
+        document.addEventListener("mousemove", handleEvent);
+        document.addEventListener("mouseup", handleEvent);
+    </script>
 </body>
 
 </html>
