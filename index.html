@@ -301,13 +301,14 @@
                             arPage.addEventListener('transitionend', function () {
                                 // Add class to hide container and arrow elements
                                 // Set the src attribute of the iframe to load its content
+                                socialLinks.style.transition = '';
+                                arrowIcon.style.transition = '';
+                                arPage.style.transition = '';
                                 window.location.href = "https://vyipi.github.io/card-captor/";
                                 socialLinks.style.transform = '';
                                 arrowIcon.style.transform = '';
                                 arPage.style.top = '';
-                                socialLinks.style.transition = '';
-                                arrowIcon.style.transition = '';
-                                arPage.style.transition = '';
+                                
                             }, { once: true });
                         } else {
                             // Add the transition style
