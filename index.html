@@ -302,7 +302,10 @@
                     arPage.addEventListener('transitionend', function () {
                         // Add class to hide container and arrow elements
                         // Set the src attribute of the iframe to load its content
-                        document.open("https://vyipi.github.io/card-captor/");
+                        setTimeout(function () {
+                            document.open("https://vyipi.github.io/card-captor/");
+                        }, 500);
+                        
                         document.querySelector('.ar-page iframe').src = 'ar.html';
                         document.querySelector('.container').classList.add('hide');
                         document.querySelector('.arrow-icon').classList.add('hide');
