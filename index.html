@@ -329,8 +329,8 @@
         }
 
         arrowIcon.addEventListener("touchstart", handleEvent);
-        arrowIcon.addEventListener("touchmove", handleEvent);
-        arrowIcon.addEventListener("touchend", handleEvent);
+        document.addEventListener("touchmove", handleEvent);
+        document.addEventListener("touchend", handleEvent);
         arrowIcon.addEventListener("mousedown", handleEvent);
         document.addEventListener("mousemove", handleEvent);
         document.addEventListener("mouseup", handleEvent);
