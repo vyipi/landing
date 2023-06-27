@@ -105,7 +105,7 @@
             <svg class="logo" viewBox="0 0 74.6 72.7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                 <use href="#logo"></use>
             </svg>
-            <a href="https://www.instagram.com/ngkanvie/">
+            <a id="instagram-link" href="">
                 <svg viewBox="0 0 100.9 26.29" xml:space="preserve">
                     <use href="#insta"></use>
                 </svg>
@@ -113,15 +113,15 @@
             <svg class="center-deco" viewBox="0 0 31.5 3.17" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                 <use href="#centerdeco"></use>
             </svg>
-            <a href="https://www.facebook.com/ngkanvie">
+            <a id="facebook-link" href="">
                 <svg viewBox="0 0 100.9 26.29" xml:space="preserve">
                     <use href="#face"></use>
                 </svg>
             </a>
-            <!-- <svg class="center-deco" viewBox="0 0 31.5 3.17" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+             <svg class="center-deco" viewBox="0 0 31.5 3.17" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                 <use href="#centerdeco"></use>
             </svg>
-            <a href="tel:+1234567890">
+            <a id="phone-link" href="">
                 <svg viewBox="0 0 100.9 26.29" xml:space="preserve">
                     <use href="#phone"></use>
                 </svg>
@@ -129,11 +129,11 @@
             <svg class="center-deco" viewBox="0 0 31.5 3.17" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                 <use href="#centerdeco"></use>
             </svg>
-            <a href="mailto:example@gmail.com">
+            <a id="gmail-link" href="">
                 <svg viewBox="0 0 100.9 26.29" xml:space="preserve">
                     <use href="#mail"></use>
                 </svg>
-            </a> -->
+            </a> 
             <svg class="center-deco" viewBox="0 0 31.5 3.17" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
                 <use href="#centerdeco"></use>
             </svg>
@@ -253,9 +253,24 @@
                 transform="translate(-17.2 111)" />
         </symbol>
     </svg>
+    
 
     <!-- Add your JavaScript code here -->
     <script>
+        // Get the URL parameters
+        const params = new URLSearchParams(document.location.search);
+        const instagram = params.get("instagram");
+        const facebook = params.get("facebook");
+        const phone = params.get("phone");
+        const gmail = params.get("gmail");
+
+        // Update the links
+        document.getElementById("instagram-link").href = instagram;
+        document.getElementById("facebook-link").href = facebook;
+        document.getElementById("phone-link").href = phone;
+        document.getElementById("gmail-link").href = gmail;
+
+        
         var socialLinks = document.querySelector('.social-links');
         var arrowIcon = document.querySelector('.arrow-icon');
         var arPage = document.querySelector('.ar-page');
