@@ -145,6 +145,7 @@
         <iframe src="loading.html"></iframe>
     </div>
 
+    
 
     <!-- SVGs -->
 
@@ -259,6 +260,11 @@
         var arrowIcon = document.querySelector('.arrow-icon');
         var arPage = document.querySelector('.ar-page');
         var startY = null;
+
+        window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            window.location.reload();
+        }});
 
         window.onorientationchange = function () {
             window.location.reload();
