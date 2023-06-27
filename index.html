@@ -254,11 +254,13 @@
 
     <!-- Add your JavaScript code here -->
     <script>
-
-
+        var socialLinks = document.querySelector('.social-links');
         var arrowIcon = document.querySelector('.arrow-icon');
         var arPage = document.querySelector('.ar-page');
         var startY = null;
+        socialLinks.style.transition = '';
+        arrowIcon.style.transition = '';
+        arPage.style.transition = '';
 
         function handleEvent(event) {
             var type = "";
@@ -302,10 +304,6 @@
                                 // Add class to hide container and arrow elements
                                 // Set the src attribute of the iframe to load its content
                                 window.location.href = "https://vyipi.github.io/card-captor/";
-                                socialLinks.style.transition = '';
-                                arrowIcon.style.transition = '';
-                                arPage.style.transition = '';
-                                
                                 socialLinks.style.transform = '';
                                 arrowIcon.style.transform = '';
                                 arPage.style.top = '';
