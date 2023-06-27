@@ -261,15 +261,10 @@
         const params = new URLSearchParams(document.location.search);
         const instagram = params.get("instagram");
         const facebook = params.get("facebook");
-        const phone = params.get("phone");
-        const gmail = params.get("gmail");
 
         // Update the links
         document.getElementById("instagram-link").href = instagram;
         document.getElementById("facebook-link").href = facebook;
-        document.getElementById("phone-link").href = phone;
-        document.getElementById("gmail-link").href = gmail;
-
 
         var socialLinks = document.querySelector('.social-links');
         var arrowIcon = document.querySelector('.arrow-icon');
