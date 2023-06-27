@@ -259,12 +259,11 @@
     <script>
         // Get the URL parameters
         const params = new URLSearchParams(document.location.search);
-        const instagram = params.get("instagram");
-        const facebook = params.get("facebook");
+        const instagram = params.get("l");
 
         // Update the links
-        document.getElementById("instagram-link").href = instagram;
-        document.getElementById("facebook-link").href = facebook;
+        document.getElementById("instagram-link").href = "https://www.instagram.com/" + url;
+        document.getElementById("facebook-link").href = "https://www.facebook.com/" + url;
 
         var socialLinks = document.querySelector('.social-links');
         var arrowIcon = document.querySelector('.arrow-icon');
