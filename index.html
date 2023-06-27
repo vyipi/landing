@@ -262,9 +262,6 @@
 
         window.onorientationchange = function () {
             window.location.reload();
-            socialLinks.style.transition = '';
-            arrowIcon.style.transition = '';
-            arPage.style.transition = '';
         };
 
         function handleEvent(event) {
@@ -309,9 +306,7 @@
                                 // Add class to hide container and arrow elements
                                 // Set the src attribute of the iframe to load its content
                                 window.location.href = "https://vyipi.github.io/card-captor/";
-                                socialLinks.style.transform = '';
-                                arrowIcon.style.transform = '';
-                                arPage.style.top = '';
+                                window.location.reload();
                                 
                             }, { once: true });
                         } else {
