@@ -282,6 +282,12 @@
         }});
 
         window.onorientationchange = function () {
+            socialLinks.style.transform = '';
+            arrowIcon.style.transform = '';
+            arPage.style.top = '';
+            socialLinks.style.transition = '';
+            arrowIcon.style.transition = '';
+            arPage.style.transition = '';
             window.location.reload();
         };
 
