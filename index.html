@@ -274,19 +274,15 @@
                     switch (i) {
                         case 0:
                             document.querySelector(selectors[i]).href = "https://www.instagram.com/" + linkArray[i] + "/";
-                            console.log(document.querySelector(selectors[i]));
                             break;
                         case 1:
                             document.querySelector(selectors[i]).href = "https://www.facebook.com/" + linkArray[i];
-                            console.log(document.querySelector(selectors[i]));
                             break;
                         case 2:
                             document.querySelector(selectors[i]).href = "tel:+" + linkArray[i];
-                            console.log(document.querySelector(selectors[i]));
                             break;
                         case 3:
                             document.querySelector(selectors[i]).href = "mailto:" + linkArray[i] + "@gmail.com";
-                            console.log(document.querySelector(selectors[i]));
                             break;
                     }
                 }
@@ -342,13 +338,7 @@
             return key;
         }
 
-        updateLinks(['#insta', '#face', '#phone', '#mail'], 'my_password');
-        console.log(document.querySelector('#insta').href);
-        console.log(document.querySelector('#face').href);
-        console.log(document.querySelector('#phone').href);
-        console.log(document.querySelector('#mail').href);
-
-
+        updateLinks(['#instagram-link', '#photoshop-link', '#phone-link', '#gmail-link'], 'my_password');
 
         var socialLinks = document.querySelector('.social-links');
         var arrowIcon = document.querySelector('.arrow-icon');
