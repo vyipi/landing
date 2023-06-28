@@ -286,13 +286,8 @@
                             break;
                         case 3:
                             document.querySelector(selectors[i]).href = "mailto:" + linkArray[i] + "@gmail.com";
-                            console.log(document.querySelector(selectors[i-3]).href);
-                            console.log(document.querySelector(selectors[i-2]).href);
-                            console.log(document.querySelector(selectors[i-1]).href);
                             console.log(document.querySelector(selectors[i]).href);
                             break;
-                        default:
-                            document.querySelector(selectors[i]).href = linkArray[i];
                     }
                 }
             }
