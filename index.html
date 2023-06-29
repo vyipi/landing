@@ -429,12 +429,12 @@
             }
         }
 
-        arrowIcon.addEventListener("touchstart", handleEvent);
-        document.addEventListener("touchmove", handleEvent);
-        document.addEventListener("touchend", handleEvent);
-        arrowIcon.addEventListener("mousedown", handleEvent);
-        document.addEventListener("mousemove", handleEvent);
-        document.addEventListener("mouseup", handleEvent);
+        arrowIcon.addEventListener("touchstart", handleEvent, { passive: false });
+        document.addEventListener("touchmove", handleEvent, { passive: false });
+        document.addEventListener("touchend", handleEvent, { passive: false });
+        arrowIcon.addEventListener("mousedown", handleEvent, { passive: false });
+        document.addEventListener("mousemove", handleEvent, { passive: false });
+        document.addEventListener("mouseup", handleEvent, { passive: false });
     </script>
 </body>
 
